@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block content %}
+    <h5>Enter pdf files & long_list</h5>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="pdf_file" multiple=''>
+    <input type="file" name="long_list">
+    <input type="submit" name="submit_button" value="upload">
+</form>
+    {{pdf_names|safe}}
+
+    {{pdf_text|safe}}
+{% endblock content %}

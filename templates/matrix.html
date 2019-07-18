@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block content %}
+<h5>Upload a csv with results.</h5>
+<form method="post" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="submit" name="submit_button" value="upload">
+</form>
+<div>
+    {{filename|safe}}
+</div>
+{% for id in ids %}
+        <div id="{{id}}"></div>
+{% endfor %}
+<div>
+    {{matrix|safe}}
+</div>
+
+<form method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <th></th>
+            <th style="text-align:center">External stakeholders</th>
+            <th style="text-align:center">Internal stakeholders</th>
+            <th style="text-align:center">Peer reports</th>
+            <th style="text-align:center">Social media</th>
+            <th style="text-align:center">News reports</th>
+            <th style="text-align:center">Survey data</th>
+        </tr>
+        <tr>
+            <td>x-axis</td>
+            <td style="text-align:center"><input type="checkbox" name="x_dim" value="0"></td>
+            <td style="text-align:center"><input type="checkbox" name="x_dim" value="1"></td>
+            <td style="text-align:center"><input type="checkbox" name="x_dim" value="2"></td>
+            <td style="text-align:center"><input type="checkbox" name="x_dim" value="3"></td>
+            <td style="text-align:center"><input type="checkbox" name="x_dim" value="4"></td>
+            <td style="text-align:center"><input type="checkbox" name="x_dim" value="5"></td>
+        </tr>
+        <tr>
+            <td>y-axis</td>
+            <td style="text-align:center"><input type="checkbox" name="y_dim" value="0"></td>
+            <td style="text-align:center"><input type="checkbox" name="y_dim" value="1"></td>
+            <td style="text-align:center"><input type="checkbox" name="y_dim" value="2"></td>
+            <td style="text-align:center"><input type="checkbox" name="y_dim" value="3"></td>
+            <td style="text-align:center"><input type="checkbox" name="y_dim" value="4"></td>
+            <td style="text-align:center"><input type="checkbox" name="y_dim" value="5"></td>
+        </tr>
+    </table>
+    <input type="submit" name="submit_button" value="update">
+    {{datadf|safe}}
+</form>
+
+{% endblock content %}
+
